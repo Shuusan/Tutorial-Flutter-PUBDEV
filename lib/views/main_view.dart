@@ -44,8 +44,8 @@ class MainView extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(top: 40),
             child: Container(
-              width: 790,
-              height: Get.height - 40,
+              width: MediaQuery.of(context).size.width * .85,
+              height: MediaQuery.of(context).size.height - 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25.0),
                 gradient: const LinearGradient(
@@ -64,36 +64,42 @@ class MainView extends StatelessWidget {
                       style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Text(
-                    "Pub dev satu untuk semua!\nKumpulan library Pubdev untuk memudahkan membuat aplikasi dengan Flutter",
-                    style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400),
-                    textAlign: TextAlign.center,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Kumpulan library Pubdev untuk memudahkan membuat aplikasi dengan Flutter",
+                      style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w400),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Expanded(
-                    child: ListView.builder(
-                      itemCount: listPubDev.length,
-                      prototypeItem: UnconstrainedBox(
-                        child: SizedBox(
-                          width: Get.width * .45,
-                          height: Get.height * .4,
-                        ),
-                      ),
-                      itemBuilder: (context, index) {
-                        return UnconstrainedBox(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ListView.builder(
+                        itemCount: listPubDev.length,
+                        prototypeItem: UnconstrainedBox(
                           child: SizedBox(
-                            width: Get.width * .45,
-                            height: Get.height * .4,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  Get.to(const GetXVIew());
-                                },
-                                style: ElevatedButton.styleFrom(),
-                                child: Center(
-                                  child: Text(listPubDev[index]),
-                                )),
+                            width: MediaQuery.of(context).size.width * .45,
+                            height: MediaQuery.of(context).size.height * .15,
                           ),
-                        );
-                      },
+                        ),
+                        itemBuilder: (context, index) {
+                          return UnconstrainedBox(
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * .45,
+                              height: MediaQuery.of(context).size.height * .15,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Get.to(const GetXVIew());
+                                  },
+                                  style: ElevatedButton.styleFrom(),
+                                  child: Center(
+                                    child: Text(listPubDev[index]),
+                                  )),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
