@@ -9,17 +9,17 @@ void main() async {
   await windowManager.ensureInitialized();
 
   WindowOptions windowOptions = const WindowOptions(
-    size: Size(500, 720),
+    size: Size(589.0, 788.0),
     center: true,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
-    titleBarStyle: TitleBarStyle.hidden,
+    titleBarStyle: TitleBarStyle.normal,
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
-    await windowManager.setResizable(false);
-    await windowManager.setAlwaysOnTop(true);
-    await windowManager.setPosition(const Offset(1420, 45));
+    //await windowManager.setResizable(false);
+    //await windowManager.setAlwaysOnTop(true);
+    await windowManager.setPosition(const Offset(1323.0, 78.0));
     await windowManager.focus();
   });
 
@@ -32,7 +32,12 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GetMaterialApp(
-      home: Scaffold(body: MainView()),
+      home: Scaffold(
+        body: MainView(),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () async => print((await windowManager.getSize()).toString()),
+        // ),
+      ),
     );
   }
 }

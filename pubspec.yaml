@@ -7,8 +7,10 @@ environment:
   sdk: '>=2.19.3 <3.0.0'
 
 dependencies:
+  adobe_xd: ^2.0.1
   flutter:
     sdk: flutter
+  font_awesome_flutter: ^10.4.0
   get: ^4.6.5
   google_fonts: ^4.0.3
   window_manager: ^0.3.1
